@@ -1,10 +1,9 @@
 <?php
 
+use App\Http\Controllers\ActionController;
 use App\Http\Controllers\BannerHomeController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\PostController;
-use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 /*
@@ -37,11 +36,10 @@ Route::middleware('auth')->group(function () {
 // Route::get('products', [ProductController::class, 'index'])->name('products.index');
 // Route::get('products/create', [ProductController::class, 'create'])->name('products.create');
 // Route::post('products', [ProductController::class, 'store'])->name('products.store');
-Route::resource('dashboard/post', PostController::class)->middleware(['auth', 'verified']);
-
-
-Route::resource('dashboard/bannerhome', BannerHomeController::class)->middleware(['auth', 'verified']);
-
-
+Route::middleware(['auth', 'verified'])->group(function() {
+    Route::resource('dashboard/post', PostController::class);
+    Route::resource('dashboard/bannerhome', BannerHomeController::class);
+    Route::resource('dashboard/action', ActionController::class);
+});
 
 require __DIR__ . '/auth.php';

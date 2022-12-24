@@ -16,12 +16,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $banner_home = BannerHome::latest();
-        $action = Action::all();
-        // return view('home',compact('hero_section'));
-        $data["banner_home"]=$banner_home;
-        $data["action"]=$action;
-        return view('homepage',$data);
+        // $banner_home = BannerHome::latest();
+        // $action = Action::all();
+        // // return view('home',compact('hero_section'));
+        // $data["banner_home"]=$banner_home;
+        // $data["action"]=$action;
+        $data['action'] = Action::paginate(6);
+        $data['banner_home'] = BannerHome::paginate(1);
+        return view('homepage.index',$data);
     }
 
     /**
@@ -51,9 +53,12 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Action $action, BannerHome $banner_home)
     {
-        //
+        // $data['banner_home'] = $banner_home;
+        // $data['title'] = $action->title;
+        // $data['action'] = $action;
+        // return view('homepage.index', $data);
     }
 
     /**

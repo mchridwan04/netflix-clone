@@ -1,4 +1,4 @@
-@extends('dashboard.bannerhome.app')
+@extends('dashboard.action.app')
 @section('content')
       @if (session('success'))
          <p class="alert alert-success">{{ session('success') }}</p>
@@ -14,7 +14,7 @@
                      <button class="btn btn-success">Refresh</button>
                   </div>
                   <div class="col">
-                     <a class="btn btn-primary" href="{{ route('bannerhome.create') }}">Add</a>
+                     <a class="btn btn-primary" href="{{ route('action.create') }}">Add</a>
                   </div>
                </form>
          </div>
@@ -28,21 +28,21 @@
                            <th>Action</th>
                      </tr>
                   </thead>
-                  @foreach ($banner as $key => $banners)
+                  @foreach ($action as $key => $actions)
                      <tr>
                            <td>{{ $key + 1 }}</td>
-                           <td>{{ $banners->title }}</td>
+                           <td>{{ $actions->title }}</td>
                            <td>
-                              <img src="{{ $banners->image() }}" height="75" />
+                              <img src="{{ $actions->image() }}" height="75" />
                            </td>
                            <td class="text-nowrap">
-                              <a class="btn btn-sm btn-info" href="{{ route('bannerhome.show', $banners) }}">Show</a>
-                              <a class="btn btn-sm btn-warning" href="{{ route('bannerhome.edit', $banners) }}">Edit</a>
-                              <form method="POST" action="{{ route('bannerhome.destroy', $banners) }}" style="display: inline-block;">
+                              <a class="btn btn-sm btn-info" href="{{ route('action.show', $actions) }}">Show</a>
+                              <a class="btn btn-sm btn-warning" href="{{ route('action.edit', $actions) }}">Edit</a>
+                              <form method="POST" action="{{ route('action.destroy', $actions) }}" style="display: inline-block;">
                                  @csrf
                                  @method('DELETE')
                                  <button class="btn btn-sm btn-danger"
-                                       onclick="return confirm('Hapus Banner?')">Delete</button>
+                                       onclick="return confirm('Hapus Data?')">Delete</button>
                               </form>
                            </td>
                      </tr>

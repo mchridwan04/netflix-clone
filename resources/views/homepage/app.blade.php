@@ -6,14 +6,16 @@
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
    @vite('resources/css/app.css')
    {{-- <link href="https://cdn.jsdelivr.net/npm/daisyui@2.46.0/dist/full.css" rel="stylesheet" type="text/css" /> --}}
-   <title>Netflix-Homepage</title>
+   <title>Netflix Universitas Muria Kudus</title>
    <link rel = "icon" href = "/images/assets/favicon.png" type = "image/x-icon">
 </head>
-<body class="bg-black">
+<body>
+   <div class="bg bg-black">
    @include('layouts.navbar')
-   
-   @yield('BannerHome',)
-   @yield('action')
-   {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
+   </div>
+   <div class="bg bg-black">
+      @yield('content',)
+   </div>
 </body>
+<script src="https://cdn.tailwindcss.com"></script>
 </html>

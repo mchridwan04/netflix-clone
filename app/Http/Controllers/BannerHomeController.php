@@ -52,24 +52,22 @@ class BannerHomeController extends Controller
             'title' => 'required',
             'image' => 'required',
         ]);
-        // If Image Size Small name file image original
+
         $image = $request->file('image');
         $file_name = rand(1000, 9999) . $image->getClientOriginalName();
 
-        // If image size big name file add small_ in front
         $img = Image::make($image->path());
         $img->resize('180', '120')
             ->save(public_path('images/banner') . '/small_' . $file_name);
 
-        //  Add image in patch Public/images/bannerhome/<name_file>
         $image->move('images/banner', $file_name);
 
-        $bannerHome = new BannerHome();
-        $bannerHome->title = $request->title;
-        $bannerHome->image = $file_name;
-        $bannerHome->description = $request->description;
-        $bannerHome->save();
-        return redirect()->route('bannerhome.index')->with('success', 'BannerHome added successfully');
+        $action = new BannerHome();
+        $action->title = $request->title;
+        $action->image = $file_name;
+        $action->description = $request->description;
+        $action->save();
+        return redirect()->route('bannerhome.index')->with('success', 'Banner Homepage added successfully');
     }
 
     /**
@@ -82,7 +80,7 @@ class BannerHomeController extends Controller
     {
         $data['title'] = $bannerHome->title;
         $data['banner'] = $bannerHome;
-        return view('dashboard.bannerhome.show', $data);
+        return view('bannerhome.show', $data);
     }
 
     /**
@@ -124,7 +122,7 @@ class BannerHomeController extends Controller
         $bannerHome->title = $request->title;
         $bannerHome->description = $request->description;
         $bannerHome->save();
-        // return redirect()->route('bannerhome.index')->with('success', 'Banner Home edited successfully');
+        return redirect()->route('bannerhome.index')->with('success', 'Movie Action edited successfully');
     }
 
     /**
