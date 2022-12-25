@@ -23,8 +23,8 @@
 * PHP 8.0.2 
 * Laravel 9.19
 * Laravel Breeze 9.19
-* Tailwind CSS
-* Daisy UI Component
+* Tailwind CSS 3.2.4
+* Daisy UI Component 2.46.0
 * MySQL
 
 ## Tools
