@@ -39,6 +39,7 @@
 * https://tailwindcss.com/docs/installation
 * https://daisyui.com/components/
 * https://stackoverflow.com/
+* https://tugasakhir.id/crud-gambar-laravel/
 
 ## Getting Started
 
