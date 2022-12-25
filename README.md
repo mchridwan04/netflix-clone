@@ -20,8 +20,9 @@
 
 ## Built With
 
-* Laravel 
-* Laravel Breeze
+* PHP 8.0.2 
+* Laravel 9.19
+* Laravel Breeze 9.19
 * Tailwind CSS
 * Daisy UI Component
 * MySQL
