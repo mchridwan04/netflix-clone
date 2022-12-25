@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\ActionController;
-use App\Http\Controllers\BannerHomeController;
+use App\Http\Controllers\BannerController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PageActionController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RomanceController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -18,10 +20,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index']);
+Route::get('/action', [PageActionController::class, 'index']);
 
-// Route::get('/', function () {
-//     return view('homepage');
-// });
+
+Route::get('/about', function () {
+    return view('homepage.about');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -38,8 +42,9 @@ Route::middleware('auth')->group(function () {
 // Route::post('products', [ProductController::class, 'store'])->name('products.store');
 Route::middleware(['auth', 'verified'])->group(function() {
     Route::resource('dashboard/post', PostController::class);
-    Route::resource('dashboard/bannerhome', BannerHomeController::class);
     Route::resource('dashboard/action', ActionController::class);
+    Route::resource('dashboard/banner', BannerController::class);
+    Route::resource('dashboard/romance', RomanceController::class);
 });
 
 require __DIR__ . '/auth.php';

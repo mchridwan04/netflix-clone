@@ -50,7 +50,7 @@ class ActionController extends Controller
         $file_name = rand(1000, 9999) . $image->getClientOriginalName();
 
         $img = Image::make($image->path());
-        $img->resize('180', '120')
+        $img->resize('1900', '1200')
             ->save(public_path('images/action') . '/small_' . $file_name);
 
         $image->move('images/action', $file_name);
@@ -106,7 +106,7 @@ class ActionController extends Controller
             $image = $request->file('image');
             $file_name = rand(1000, 9999) . $image->getClientOriginalName();
             $img = Image::make($image->path());
-            $img->resize('180', '120')
+            $img->resize('1900', '1200')
                 ->save(public_path('images/action') . '/small_' . $file_name);
             $image->move('images/action', $file_name);
             $action->image = $file_name;

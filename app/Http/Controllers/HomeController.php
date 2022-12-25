@@ -1,11 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Models\Action;
-use App\Models\BannerHome;
 use Illuminate\Http\Request;
-use Intervention\Image\Facades\Image;
+
+// Import use Models
+use App\Models\Action;
+use App\Models\Banner;
+use App\Models\BannerHome;
+use App\Models\Romance;
+
 
 class HomeController extends Controller
 {
@@ -16,12 +19,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // $banner_home = BannerHome::latest();
-        // $action = Action::all();
-        // // return view('home',compact('hero_section'));
-        // $data["banner_home"]=$banner_home;
-        // $data["action"]=$action;
-        $data['action'] = Action::paginate(6);
+        $data['banner'] = Banner::paginate(1);
+        $data['romance'] = Romance::latest()->paginate(6);
+        $data['action'] = Action::latest()->paginate(6);
         $data['banner_home'] = BannerHome::paginate(1);
         return view('homepage.index',$data);
     }
@@ -55,10 +55,7 @@ class HomeController extends Controller
      */
     public function show(Action $action, BannerHome $banner_home)
     {
-        // $data['banner_home'] = $banner_home;
-        // $data['title'] = $action->title;
-        // $data['action'] = $action;
-        // return view('homepage.index', $data);
+        // 
     }
 
     /**

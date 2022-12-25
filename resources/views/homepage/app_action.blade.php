@@ -16,10 +16,6 @@
    <div class="bg bg-black">
       @yield('content',)
    </div>
-   <div class="text text-white -mt-20">
-      <h1 class="text text-4xl text-bold text-center">Tanya Jawab Umum</h1>
-      @include('layouts.collape')
-   </div>
    @include('layouts.footer')
 </body>
 <script src="https://cdn.tailwindcss.com"></script>
