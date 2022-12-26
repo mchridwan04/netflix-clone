@@ -1,5 +1,6 @@
 @extends('app')
 @section('content')
+{{--  H --}}
       <div class="row">
          <div class="col-md-6">
                @if ($errors->any())
