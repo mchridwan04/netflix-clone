@@ -18,8 +18,8 @@
    <div class="bg bg-black">
       @yield('content')
    </div>
-   <div class="text text-white -mt-20">
-      <h1 class="text text-4xl text-bold text-center">Tanya Jawab Umum</h1>
+   <div class=" text-white -mt-20">
+      <h1 class="text-4xl font-bold text-center text-red-600">Tanya Jawab Umum</h1>
       @include('layouts.collape')
    </div>
    @include('layouts.footer')

@@ -11,10 +11,10 @@
                </div>
          </div>
       @endforeach
-      <div class="p-1">
-         <div class="grid grid-cols-5 grid-flow-row lg:items-stretch -mt-5">
+      <div class="mt-20">
+         <div class="grid grid-cols-5 grid-flow-row lg:items-stretch">
                @foreach ($action as $act)
-                  <div class="w-full -mt-20 ">
+                  <div class="w-full -mt-32">
                      <div class="h-80 w-76 image-full">
                            <a href="">
                               <img href="" src="{{ $act->image() }}" alt="" width="250" height="120"

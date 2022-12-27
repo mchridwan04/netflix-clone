@@ -1,13 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
-
 // Import use Models
 use App\Models\Action;
 use App\Models\Banner;
 use App\Models\BannerHome;
 use App\Models\Romance;
+
+use Illuminate\Http\Request;
 
 
 class HomeController extends Controller
@@ -21,7 +21,7 @@ class HomeController extends Controller
     {
         $data['banner'] = Banner::paginate(1);
         $data['romance'] = Romance::latest()->paginate(6);
-        $data['action'] = Action::latest()->paginate(6);
+        $data['action'] = Action::paginate(6);
         $data['banner_home'] = BannerHome::paginate(1);
         return view('homepage.index',$data);
     }
@@ -53,9 +53,12 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Action $action, BannerHome $banner_home)
+    public function show(Action $action, BannerHome $banner_home, Romance $romance)
     {
-        // 
+        $data['banner'] = $banner_home;
+        $data['romance'] = $romance;
+        $data['act'] = $action;
+        return view('homepage.show', $data);
     }
 
     /**
@@ -87,8 +90,8 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Action $action, BannerHome $banner_home, Romance $romance)
     {
-        //
+        return redirect()->route('index');
     }
 }

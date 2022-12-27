@@ -73,7 +73,7 @@ class ActionController extends Controller
     {
         $data['title'] = $action->title;
         $data['action'] = $action;
-        return view('action.show', $data);
+        return view('dashboard.action.show', $data);
     }
 
     /**
