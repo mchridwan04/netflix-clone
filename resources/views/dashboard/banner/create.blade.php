@@ -1,15 +1,10 @@
-@extends('dashboard.banner.app')
-@section('content')
-   <div class="row">
-      <div class="col-lg-12 margin-tb">
-         <div class="pull-left">
-               <h2>Add New Product</h2>
-         </div>
-         <div class="pull-right">
-               <a class="btn btn-primary" href="{{ route('banner.index') }}"> Back</a>
-         </div>
-      </div>
-   </div>
+<x-app-layout>
+   {{-- Import Header From Laravel --}}
+   <x-slot name="header">
+      <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+         {{ __('Dashboard - Create Banner') }}
+      </h2>
+   </x-slot>
    @if ($errors->any())
       <div class="alert alert-danger">
          <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -22,28 +17,36 @@
    @endif
    <form action="{{ route('banner.store') }}" method="POST" enctype="multipart/form-data">
       @csrf
-      <div class="row">
-         <div class="col-xs-12 col-sm-12 col-md-12">
-               <div class="form-group">
-                  <strong>Name:</strong>
-                  <input type="text" name="name" class="form-control" placeholder="Name">
+      <div class="hero min-h-screen bg-base-200">
+         <div class="hero-content flex-col lg:flex-row-reverse">
+               <div class="card flex-shrink-1 w-full max-w-sm shadow-2xl bg-base-100 -mt-20" >
+                  <div class="card-body ">
+                     <div class="form-control">
+                           <label class="label">
+                              <span class="label-text">Title</span>
+                           </label>
+                           <input type="text" name="name" class="form-control" placeholder="Name">
+                     </div>
+                     <div class="form-control">
+                           <label class="label">
+                              <span class="label-text">Description</span>
+                           </label>
+                           <textarea class="form-control" style="height:150px" name="detail" placeholder="Detail"></textarea>
+                     </div>
+                     <div class="form-control">
+                           <label class="label">
+                              <span class="label-text">Image</span>
+                           </label>
+                           <input type="file" name="image" class="file-input file-input-bordered w-full max-w-xs"
+                              placeholder="image">
+                     </div>
+                     <div class="mb-3">
+                           <button class="btn btn-primary">Save</button>
+                           <a class="btn btn-danger" href="{{ route('action.index') }}">Back</a>
+                     </div>
+                  </div>
                </div>
-         </div>
-         <div class="col-xs-12 col-sm-12 col-md-12">
-               <div class="form-group">
-                  <strong>Detail:</strong>
-                  <textarea class="form-control" style="height:150px" name="detail" placeholder="Detail"></textarea>
-               </div>
-         </div>
-         <div class="col-xs-12 col-sm-12 col-md-12">
-               <div class="form-group">
-                  <strong>Image:</strong>
-                  <input type="file" name="image" class="form-control" placeholder="image">
-               </div>
-         </div>
-         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-               <button type="submit" class="btn btn-primary">Submit</button>
          </div>
       </div>
    </form>
-@endsection
+</x-app-layout>

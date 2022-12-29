@@ -6,16 +6,6 @@
       </h2>
    </x-slot>
    {{-- Section Content --}}
-   <div class="row">
-      <div class="col-lg-12 margin-tb">
-         <div class="pull-left">
-               <h2>Edit Product</h2>
-         </div>
-         <div class="pull-right">
-               <a class="btn btn-primary" href="{{ route('romance.index') }}"> Back</a>
-         </div>
-      </div>
-   </div>
    @if ($errors->any())
       <div class="alert alert-danger">
          <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -29,30 +19,36 @@
    <form action="{{ route('romance.update', $romance->id) }}" method="POST" enctype="multipart/form-data">
       @csrf
       @method('PUT')
-      <div class="row">
-         <div class="col-xs-12 col-sm-12 col-md-12">
-               <div class="form-group">
-                  <strong>Name:</strong>
-                  <input type="text" name="name" value="{{ $romance->name }}" class="form-control"
-                     placeholder="Name">
+         <div class="hero min-h-screen bg-base-200 -mt-20">
+      <div class="hero-content flex-col lg:flex-row-reverse">
+            <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+               <div class="card-body">
+                  <div class="form-control">
+                        <label class="label">
+                           <span class="label-text">Title</span>
+                        </label>
+                        <input type="text" name="name" value="{{ $romance->name }}"
+                           class="input input-bordered" placeholder="Title ...">
+                  </div>
+                  <div class="form-control">
+                     <label class="label">
+                        <span class="label-text">Description</span>
+                     </label>
+                     <textarea class="textarea textarea-bordere" style="height:150px" name="detail" placeholder="Detail" rows="3">{{ $romance->detail }}</textarea>
+                  </div>
+                  <div class="form-control">
+                     <label class="label">
+                        <span class="label-text">Image</span>
+                     </label>
+                  <input type="file" name="image" class="file-input file-input-bordered w-full max-w-xs" placeholder="image">
+                  </div>
+                  <button type="submit" class="btn btn-md">SAVE</button>
                </div>
-         </div>
-         <div class="col-xs-12 col-sm-12 col-md-12">
-               <div class="form-group">
-                  <strong>Detail:</strong>
-                  <textarea class="form-control" style="height:150px" name="detail" placeholder="Detail">{{ $romance->detail }}</textarea>
-               </div>
-         </div>
-         <div class="col-xs-12 col-sm-12 col-md-12">
-               <div class="form-group">
-                  <strong>Image:</strong>
-                  <input type="file" name="image" class="form-control" placeholder="image">
-                  <img src="/images/{{ $romance->image }}" width="300px">
-               </div>
-         </div>
-         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-               <button type="submit" class="btn btn-primary">Submit</button>
-         </div>
+            </div>
+            <div class="text-center lg:text-left ">
+               <img src="/images/{{ $romance->image }}" width="700px">
+            </div>
       </div>
+   </div>
    </form>
 </x-app-layout>
