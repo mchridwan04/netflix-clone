@@ -20,6 +20,8 @@
 
 ## Built With
 
+* Node Js 18.12.1 Latest
+* NPM 8.19.2
 * PHP 8.0.2 
 * Laravel 9.19
 * Laravel Breeze 9.19
@@ -41,6 +43,7 @@
 * https://daisyui.com/components/
 * https://stackoverflow.com/
 * https://tugasakhir.id/crud-gambar-laravel/
+* https://www.netflix.com/id/
 
 ## Getting Started
 
