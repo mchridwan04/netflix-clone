@@ -23,10 +23,8 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 // Route User
 // Route::resource('', HomeController::class);
 Route::resource('/', HomeController::class);
-Route::resource('/dashboard/banner/', HomeController::class);
 Route::get('/action', [PageActionController::class, 'index']);
 Route::get('/about', function () {return view('homepage.about');});
-
 
 
 // Route::get('products', [ProductController::class, 'index'])->name('products.index');

@@ -14,4 +14,5 @@ class PageActionController extends Controller
         $data['action'] = Action::all();
         return view('homepage.action', $data);
     }
+
 }

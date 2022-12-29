@@ -1,6 +1,6 @@
 <div class="navbar bg-transparant fixed text-bold ml-2 mr-2" style="z-index: 1;">
    <div class="flex-1">
-      <a href="/" class="btn btn-ghost normal-case mr-6">
+      <a href="/" class="btn btn-ghost normal-case mr-6" style="z-index: 1;">
          <img src="images/assets/netflix.png" alt="" width="120" class="-mt-8">
       </a>
       <a href="/" class="text-white m-4"> Home</a>
