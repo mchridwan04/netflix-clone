@@ -2,7 +2,7 @@
    {{-- Import Header From Laravel --}}
    <x-slot name="header">
       <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-         {{ __('Dashboard - Banner') }}
+         {{ __('Dashboard - Movie Romance') }}
       </h2>
    </x-slot>
    {{-- Section Content --}}
@@ -12,7 +12,7 @@
                <h2>Edit Product</h2>
          </div>
          <div class="pull-right">
-               <a class="btn btn-primary" href="{{ route('banner.index') }}"> Back</a>
+               <a class="btn btn-primary" href="{{ route('romance.index') }}"> Back</a>
          </div>
       </div>
    </div>
@@ -26,28 +26,28 @@
          </ul>
       </div>
    @endif
-   <form action="{{ route('banner.update', $banner->id) }}" method="POST" enctype="multipart/form-data">
+   <form action="{{ route('romance.update', $romance->id) }}" method="POST" enctype="multipart/form-data">
       @csrf
       @method('PUT')
       <div class="row">
          <div class="col-xs-12 col-sm-12 col-md-12">
                <div class="form-group">
                   <strong>Name:</strong>
-                  <input type="text" name="name" value="{{ $banner->name }}" class="form-control"
+                  <input type="text" name="name" value="{{ $romance->name }}" class="form-control"
                      placeholder="Name">
                </div>
          </div>
          <div class="col-xs-12 col-sm-12 col-md-12">
                <div class="form-group">
                   <strong>Detail:</strong>
-                  <textarea class="form-control" style="height:150px" name="detail" placeholder="Detail">{{ $banner->detail }}</textarea>
+                  <textarea class="form-control" style="height:150px" name="detail" placeholder="Detail">{{ $romance->detail }}</textarea>
                </div>
          </div>
          <div class="col-xs-12 col-sm-12 col-md-12">
                <div class="form-group">
                   <strong>Image:</strong>
                   <input type="file" name="image" class="form-control" placeholder="image">
-                  <img src="/images/{{ $banner->image }}" width="300px">
+                  <img src="/images/{{ $romance->image }}" width="300px">
                </div>
          </div>
          <div class="col-xs-12 col-sm-12 col-md-12 text-center">
@@ -56,4 +56,3 @@
       </div>
    </form>
 </x-app-layout>
-

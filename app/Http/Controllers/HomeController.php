@@ -22,7 +22,6 @@ class HomeController extends Controller
         $data['banner'] = Banner::paginate(1);
         $data['romance'] = Romance::latest()->paginate(6);
         $data['action'] = Action::paginate(6);
-        $data['banner_home'] = BannerHome::paginate(1);
         return view('homepage.index',$data);
     }
 

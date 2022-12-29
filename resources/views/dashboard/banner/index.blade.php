@@ -60,7 +60,6 @@
                      <td>Purple</td>
                      <th>
                            <form action="{{ route('banner.destroy', $banner->id) }}" method="POST">
-                              <a class="btn btn-info" href="{{ route('banner.show', $banner->id) }}">Show</a>
                               <a class="btn btn-primary" href="{{ route('banner.edit', $banner->id) }}">Edit</a>
                               @csrf
                               @method('DELETE')

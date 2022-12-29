@@ -4,11 +4,10 @@ use App\Http\Controllers\ActionController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageActionController;
-use App\Http\Controllers\PostController;
+use App\Http\Controllers\PageRomanceController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RomanceController;
 use Illuminate\Support\Facades\Route;
-use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,17 +19,13 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 | contains the "web" middleware group. Now create something great!
 |
 */
-// Route User
-// Route::resource('', HomeController::class);
+// Route Homepage
 Route::resource('/', HomeController::class);
 Route::get('/action', [PageActionController::class, 'index']);
+Route::get('/romance', [PageRomanceController::class, 'index']);
 Route::get('/about', function () {return view('homepage.about');});
 
-
-// Route::get('products', [ProductController::class, 'index'])->name('products.index');
-// Route::get('products/create', [ProductController::class, 'create'])->name('products.create');
-// Route::post('products', [ProductController::class, 'store'])->name('products.store');
-// Router Dashboard admin
+// Route Dashboard
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

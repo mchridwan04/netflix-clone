@@ -31,7 +31,7 @@
                   @foreach ($romance as $rom)
                      <div class="w-full">
                            <div class="h-80 w-76 image-full">
-                              <a href="/">
+                              <a href="{{ route('romance.show', $rom->id) }}">
                                  <img src="images/{{ $rom->image }}" alt="" width="205" height="120"
                                        class="transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-125 duration-300 shadow-black">
                               </a>
