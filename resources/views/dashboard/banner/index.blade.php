@@ -8,7 +8,7 @@
 
    {{-- Show Notif --}}
    @if ($message = Session::get('success'))
-      <div class="alert shadow-lg m-2">
+      <div class="alert shadow-md m-2">
          <div>
                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                   class="stroke-info flex-shrink-0 w-6 h-6">

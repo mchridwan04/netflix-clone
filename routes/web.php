@@ -32,7 +32,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 Route::middleware(['auth', 'verified'])->group(function() {
-    Route::resource('dashboard/post', PostController::class);
     Route::resource('dashboard/action', ActionController::class);
     Route::resource('dashboard/banner', BannerController::class);
     Route::resource('dashboard/romance', RomanceController::class);

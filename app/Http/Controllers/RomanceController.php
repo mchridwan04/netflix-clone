@@ -93,7 +93,7 @@ class RomanceController extends Controller
         $request->validate([
             'name' => 'required',
             'detail' => 'required',
-            'Actor' => 'required'
+            // 'Actor' => 'required'
         ]);
         $input = $request->all();
         if ($image = $request->file('image')) {

@@ -13,8 +13,9 @@
                         <h1 class="text font-bold text-6xl text-red-600 mr-96">
                             {{ $action->title }}
                         </h1>
-                        <h1 class="text text-xl text-white">Actor: </h1>
-                        <h2 class="text text-xl text-white">Production: </h2>
+                        <h1 class="text text-md text-white">Actor: </h1>
+                        <h2 class="text text-md text-white">Production: </h2>
+                        <h2 class="text text-md text-white">Tayang In: </h2>
                     </div>
                 </div>
             </div>

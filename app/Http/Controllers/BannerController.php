@@ -100,7 +100,7 @@ class BannerController extends Controller
         }
         $banner->update($input);
         return redirect()->route('banner.index')
-            ->with('success', 'Product updated successfully');
+            ->with('success', 'Banner updated successfully');
     }
 
     /**
