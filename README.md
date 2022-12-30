@@ -44,6 +44,7 @@
 * https://stackoverflow.com/
 * https://tugasakhir.id/crud-gambar-laravel/
 * https://www.netflix.com/id/
+* https://lottiefiles.com/
 
 ## Getting Started
 
