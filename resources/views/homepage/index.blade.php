@@ -44,11 +44,11 @@
                <div class="p-1">
                   <h1 class="text-white p-3 text-2xl text-bold -mt-52">Horror</h1>
                   <div class="flex  justify-center flex-col lg:flex-row lg:items-stretch ">
-                     @foreach ($action as $act)
+                     @foreach ($horror as $hor)
                            <div class="w-full">
                               <div class="h-80 w-76 image-full">
-                                 <a href="">
-                                       <img href="" src="{{ $act->image() }}" alt="" width="205" height="120"
+                                 <a href="{{ route('horror.show', $hor->id) }}">
+                                       <img href="" src="images/{{ $hor->image }}" alt="" width="205" height="120"
                                           class="transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-125 duration-300 shadow-black">
                                  </a>
                                  <div class="card-body">

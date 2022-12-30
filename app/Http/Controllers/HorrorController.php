@@ -2,24 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Romance;
+use App\Models\Horror;
 use Illuminate\Http\Request;
 
-class RomanceController extends Controller
+class HorrorController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        // $data['title'] = 'Movie Romance';
-        // $data['q'] = $request->query('q');
-        // $data['romance'] = Romance::where('name', 'like', '&' . $data['q'] . '%')->get();
-        // return view('dashboard.romance.index', $data);
-        $romance = Romance::all();
-        return view('dashboard.romance.index',compact('romance'))
+        $horror = Horror::latest()->paginate(5);
+        return view('dashboard.horror.index',compact('horror'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -30,7 +26,7 @@ class RomanceController extends Controller
      */
     public function create()
     {
-        return view('dashboard.romance.create');
+        return view('dashboard.horror.create');
     }
 
     /**
@@ -41,15 +37,10 @@ class RomanceController extends Controller
      */
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'name' => 'required',
-        //     'detail' => 'required',
-        //     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
-        // ]);
         $request->validate([
             'name' => 'required',
             'detail' => 'required',
-            'image' => 'required|image|mimes:png,jpg,jpeg,giv,svg|max:2048'
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         $input = $request->all();
         if ($image = $request->file('image')) {
@@ -58,45 +49,46 @@ class RomanceController extends Controller
             $image->move($destinationPath, $profileImage);
             $input['image'] = "$profileImage";
         }
-        Romance::create($input);
-        return redirect()->route('romance.index')
-            ->with('success', 'Movie Romance created successfully.');
+        Horror::create($input);
+        return redirect()->route('horror.index')
+            ->with('success', 'Movie Horror created successfully.');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Romance  $romance
+     * @param  \App\Models\Horror  $horror
      * @return \Illuminate\Http\Response
      */
-    public function show(Romance $romance)
+    public function show(Horror $horror)
     {
-        return view('dashboard.romance.show', compact('romance'));
+        return view('dashboard.horror.show', compact('horror'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Romance  $romance
+     * @param  \App\Models\Horror  $horror
      * @return \Illuminate\Http\Response
      */
-    public function edit(Romance $romance)
+    public function edit(Horror $horror)
     {
-        return view('dashboard.romance.edit', compact('romance'));
+        return view('dashboard.horror.edit', compact('horror'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Romance  $romance
+     * @param  \App\Models\Horror  $horror
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Romance $romance)
+    public function update(Request $request, Horror $horror)
     {
         $request->validate([
             'name' => 'required',
-            'detail' => 'required'
+            'detail' => 'required',
+            // 'Actor' => 'required'
         ]);
         $input = $request->all();
         if ($image = $request->file('image')) {
@@ -107,21 +99,21 @@ class RomanceController extends Controller
         } else {
             unset($input['image']);
         }
-        $romance->update($input);
-        return redirect()->route('romance.index')
-            ->with('success', 'Movie Romance updated successfully');
+        $horror->update($input);
+        return redirect()->route('horror.index')
+            ->with('success', 'Movie Horror updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Romance  $romance
+     * @param  \App\Models\Horror  $horror
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Romance $romance)
+    public function destroy(Horror $horror)
     {
-        $romance->delete();
-        return redirect()->route('romance.index')
-                        ->with('success','Movie Romance deleted successfully');
+        $horror->delete();
+        return redirect()->route('horror.index')
+                        ->with('success','Movie Horror deleted successfully');
     }
 }

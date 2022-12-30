@@ -15,7 +15,7 @@
          </ul>
       </div>
    @endif
-   <form action="{{ route('romance.store') }}" method="POST" enctype="multipart/form-data">
+   <form action="{{ route('horror.store') }}" method="POST" enctype="multipart/form-data">
       @csrf
       <div class="hero min-h-screen bg-base-200">
          <div class="hero-content flex-col lg:flex-row-reverse">
@@ -42,7 +42,7 @@
                      </div>
                      <div class="mb-3">
                            <button class="btn btn-primary">Save</button>
-                           <a class="btn btn-danger" href="{{ route('romance.index') }}">Back</a>
+                           <a class="btn btn-danger" href="{{ route('horror.index') }}">Back</a>
                      </div>
                   </div>
                </div>

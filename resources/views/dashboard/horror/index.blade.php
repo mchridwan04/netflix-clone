@@ -2,7 +2,7 @@
    {{-- Import Header --}}
    <x-slot name="header">
       <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-         {{ __('Dashboard - Movie Romance') }}
+         {{ __('Dashboard - Movie Horror') }}
       </h2>
    </x-slot>
 
@@ -25,8 +25,8 @@
 
    {{-- Section Content --}}
    <div class="overflow-x-auto w-full">
-      <a href="{{ route('romance.create') }}">
-         <button class="btn bg-white text-black ml-5 mt-2">Add Movie Romance</button>
+      <a href="{{ route('horror.create') }}">
+         <button class="btn bg-white text-black ml-5 mt-2">Add Movie Horror</button>
       </a>
 
       <table class="table w-full">
@@ -41,7 +41,7 @@
          </thead>
          <tbody>
                <!-- row 1 -->
-               @foreach ($romance as $key => $romances)
+               @foreach ($horror as $key => $horrors)
                   <tr>
                      <td></td>
                      <td>{{ $key + 1 }}</td>
@@ -49,20 +49,20 @@
                            <div class="flex items-center space-x-4">
                               <div class="avatar">
                                  <div class="w-20">
-                                       <img src="/images/{{ $romances->image }}" alt="Avatar Tailwind CSS Component" />
+                                       <img src="/images/{{ $horrors->image }}" alt="{{ $horrors->name }}" />
                                  </div>
                               </div>
                               <div>
-                                 <div class="font-bold">{{ $romances->name }}</div>
-                                 <div class="text-sm opacity-50">Movie Romance</div>
+                                 <div class="font-bold">{{ $horrors->name }}</div>
+                                 <div class="text-sm opacity-50">Movie Horror</div>
                               </div>
                            </div>
                      </td>
-                     {{-- <td>{{ $romances->detail }}</td> --}}
+                     {{-- <td>{{ $horrors->detail }}</td> --}}
                      <th>
-                           <form action="{{ route('romance.destroy', $romances->id) }}" method="POST">
+                           <form action="{{ route('horror.destroy', $horrors->id) }}" method="POST">
                               {{-- <a class="btn btn-info" href="{{ route('romance.show', $romances->id) }}">Show</a> --}}
-                              <a class="btn btn-primary" href="{{ route('romance.edit', $romances->id) }}">Edit</a>
+                              <a class="btn btn-primary" href="{{ route('horror.edit', $horrors->id) }}">Edit</a>
                               @csrf
                               @method('DELETE')
                               <button type="submit" class="btn btn-danger">Delete</button>

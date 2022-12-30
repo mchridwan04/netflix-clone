@@ -13,11 +13,11 @@
       @endforeach
       <div class="mt-20">
          <div class="grid grid-cols-5 grid-flow-row lg:items-stretch">
-               @foreach ($romance as $rom)
+               @foreach ($horror as $hor)
                   <div class="w-full -mt-32">
                      <div class="h-80 w-76 image-full">
-                           <a href="{{ route('romance.show', $rom->id) }}">
-                              <img href="{{ route('romance.show', $rom->id) }}" src="images/{{ $rom->image }}" alt="" width="250" height="120"
+                           <a href="{{ route('horror.show', $hor->id) }}">
+                              <img href="{{ route('horror.show', $hor->id) }}" src="images/{{ $hor->image }}" alt="" width="250" height="120"
                                  class="transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-125 duration-300 shadow-black">
                            </a>
                            <div class="card-body">

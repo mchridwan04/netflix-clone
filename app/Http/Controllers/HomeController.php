@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 // Import use Models
 use App\Models\Action;
 use App\Models\Banner;
-use App\Models\BannerHome;
 use App\Models\Romance;
+use App\Models\Horror;
 
 use Illuminate\Http\Request;
 
@@ -21,7 +21,8 @@ class HomeController extends Controller
     {
         $data['banner'] = Banner::paginate(1);
         $data['romance'] = Romance::latest()->paginate(6);
-        $data['action'] = Action::paginate(6);
+        $data['action'] = Action::latest()->paginate(6);
+        $data['horror'] = Horror::latest()->paginate(6);
         return view('homepage.index',$data);
     }
 
